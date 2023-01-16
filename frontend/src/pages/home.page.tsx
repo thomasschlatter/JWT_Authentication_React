@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import FullScreenLoader from '../components/FullScreenLoader';
 import Message from '../components/Message';
-import PostItem from '../components/post/post.component';
-import { useGetAllPostsQuery } from '../redux/api/postApi';
+import ClassroomItem from '../components/classroom/classroom.component';
+import { useGetAllClassroomsQuery } from '../redux/api/classroomApi';
 
 const HomePage = () => {
-  const { isLoading, isError, error, data: posts } = useGetAllPostsQuery();
+  const { isLoading, isError, error, data: classrooms } = useGetAllClassroomsQuery();
 
   useEffect(() => {
     if (isError) {
@@ -35,10 +35,10 @@ const HomePage = () => {
       maxWidth={false}
       sx={{ backgroundColor: '#2363eb', height: '100vh' }}
     >
-      {posts?.length === 0 ? (
+      {classrooms?.length === 0 ? (
         <Box maxWidth='sm' sx={{ mx: 'auto', py: '5rem' }}>
           <Message type='info' title='Info'>
-            No posts at the moment
+            No Classrooms posted at the moment
           </Message>
         </Box>
       ) : (
@@ -52,8 +52,8 @@ const HomePage = () => {
             gridAutoRows: 'max-content',
           }}
         >
-          {posts?.map((post) => (
-            <PostItem key={post.id} post={post} />
+            {classrooms?.map((classroom) => (
+              <ClassroomItem key={classroom.id} classroom={classroom} />
           ))}
         </Grid>
       )}

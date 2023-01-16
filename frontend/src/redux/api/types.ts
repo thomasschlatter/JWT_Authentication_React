@@ -42,7 +42,7 @@ export interface IPostResponse {
 export interface IClassroom {
   id: string;
   title: string;
-  descrition: string;
+  description: string;
   image: string;
   category: string;
   user: IUser;

@@ -6,6 +6,7 @@ import { userApi } from './api/userApi';
 import userReducer from './features/userSlice';
 import postReducer from './features/postSlice';
 import classroomReducer from './features/classroomSlice';
+import { classroomApi } from './api/classroomApi';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     // Connect the PostApi reducer to the store
     [postApi.reducerPath]: postApi.reducer,
+    [classroomApi.reducerPath]: classroomApi.reducer,
     userState: userReducer,
     postState: postReducer,
     classroomState: classroomReducer,
@@ -24,6 +26,7 @@ export const store = configureStore({
       userApi.middleware,
       // Add the PostApi middleware to the store
       postApi.middleware,
+      classroomApi.middleware,
     ]),
 });
 
