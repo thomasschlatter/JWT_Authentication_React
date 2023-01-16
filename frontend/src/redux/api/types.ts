@@ -38,3 +38,14 @@ export interface IPostResponse {
   created_at: string;
   updated_at: string;
 }
+
+export interface IClassroom {
+  id: string;
+  title: string;
+  descrition: string;
+  image: string;
+  category: string;
+  user: IUser;
+  created_at: string;
+  updated_at: string;
+}
